@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NADER BIRTHDAY TERMINAL</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+    body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+    overflow: hidden;
+    height: 100vh;
+}
+
+    .terminal-header {
+    background: #FCA029;
+    padding: 8px 15px;
+    border-bottom: 1px solid #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .logo {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+    .time-date {
+    color: #ffffff;
+    font-size: 11px;
+}
+
+    .main-container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-template-rows: 1fr 200px;
+    height: calc(100vh - 50px);
+    gap: 2px;
+    background: #000;
+}
+
+    .panel {
+    background: #1a1a1a;
+    border: 1px solid #444;
+    padding: 10px;
+    overflow: hidden;
+}
+
+    .panel-header {
+    background: #FCA029;
+    color: #ffffff;
+    font-weight: bold;
+    margin: -10px -10px 8px -10px;
+    padding: 5px 10px;
+    border-bottom: 1px solid #444;
+}
+
+    .birthday-main {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: #1a1a1a;
+}
+
+    .birthday-title {
+    font-size: 32px;
+    color: #FCA029;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #FCA029;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+    @keyframes glow {
+    from { text-shadow: 0 0 10px #FCA029; }
+    to { text-shadow: 0 0 20px #FCA029, 0 0 30px #FCA029; }
+}
+
+    .birthday-message {
+    font-size: 16px;
+    color: #ffffff;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+    .stock-ticker {
+    background: #000000;
+    color: #2FC654;
+    padding: 5px;
+    font-size: 11px;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    margin: 20px 0;
+    border: 1px solid #444;
+}
+
+    .ticker-content {
+    animation: scroll 30s linear infinite;
+}
+
+    @keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+    .metrics {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+    .metric-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+    font-size: 11px;
+}
+
+    .metric-label {
+    color: #96928B;
+}
+
+    .metric-value {
+    color: #2FC654;
+    font-weight: bold;
+}
+
+    .metric-value.positive {
+    color: #2FC654;
+}
+
+    .metric-value.negative {
+    color: #A91216;
+}
+
+    .news-feed {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+    .news-item {
+    color: #ffffff;
+    font-size: 10px;
+    margin: 5px 0;
+    padding: 3px 0;
+    border-bottom: 1px solid #444;
+}
+
+    .news-time {
+    color: #96928B;
+    font-size: 9px;
+}
+
+    .chart-container {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 2px;
+}
+
+    .chart-bar {
+    width: 8px;
+    background: #2FC654;
+    animation: chartGrow 3s ease-in-out infinite;
+}
+
+    @keyframes chartGrow {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; transform: scaleY(1.2); }
+}
+
+    .command-line {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    color: #ffffff;
+    font-size: 11px;
+}
+
+    .cursor {
+    animation: blink 1s infinite;
+}
+
+    @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+    .celebration {
+    position: absolute;
+    font-size: 20px;
+    animation: float 4s ease-in-out infinite;
+}
+
+    @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+</style>
+</head>
+<body>
+<div class="terminal-header">
+    <div class="logo">BLOOMBERG BIRTHDAY TERMINAL</div>
+    <div class="time-date" id="datetime"></div>
+</div>
+
+<div class="main-container">
+    <div class="panel birthday-main">
+        <div class="birthday-title">🎉 HAPPY BIRTHDAY NADER! 🎉</div>
+        <div class="birthday-message">
+            BIRTHDAY METRICS SHOW EXCEPTIONAL PERFORMANCE<br>
+            CELEBRATION INDEX: 📈 ALL TIME HIGH<br>
+            HAPPINESS FUTURES: BULLISH OUTLOOK<br>
+            CAKE VOLATILITY: EXTREMELY POSITIVE<br><br>
+            MARKET ANALYSIS: ANOTHER YEAR OF OUTSTANDING RETURNS!
+        </div>
+
+        <div class="stock-ticker">
+            <div class="ticker-content">
+                NADER +∞% ● HAPPINESS +999% ● CAKE +100% ● FRIENDSHIP +∞% ● BIRTHDAY_WISHES +1000% ● CELEBRATION_INDEX ATH ● PARTY_MODE ACTIVATED
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-bar" style="height: 30px; animation-delay: 0s;"></div>
+            <div class="chart-bar" style="height: 45px; animation-delay: 0.2s;"></div>
+            <div class="chart-bar" style="height: 60px; animation-delay: 0.4s;"></div>
+            <div class="chart-bar" style="height: 80px; animation-delay: 0.6s;"></div>
+            <div class="chart-bar" style="height: 95px; animation-delay: 0.8s;"></div>
+            <div class="chart-bar" style="height: 70px; animation-delay: 1s;"></div>
+            <div class="chart-bar" style="height: 85px; animation-delay: 1.2s;"></div>
+            <div class="chart-bar" style="height: 100px; animation-delay: 1.4s;"></div>
+        </div>
+
+        <div class="command-line">
+            > execute birthday_celebration.exe<span class="cursor">_</span>
+        </div>
+
+        <div class="celebration" style="top: 15%; left: 15%; animation-delay: 0s;">🎂</div>
+        <div class="celebration" style="top: 25%; right: 20%; animation-delay: 1s;">🎁</div>
+        <div class="celebration" style="top: 45%; left: 10%; animation-delay: 2s;">🎊</div>
+        <div class="celebration" style="top: 65%; right: 15%; animation-delay: 3s;">🥳</div>
+    </div>
+
+    <div class="panel metrics">
+        <div class="panel-header">BIRTHDAY ANALYTICS</div>
+        <div class="metric-row">
+            <span class="metric-label">AGE APPRECIATION:</span>
+            <span class="metric-value positive">+1 YR</span>
+        </div>
+        <div class="metric-row">
+            <span class="metric-label">WISDOM INDEX:</span>
+            <span class="metric-value positive">+15.7%</span>
+        </div>
+        <div class="metric-row">
+            <span class="metric-label">EXPERIENCE YIELD:</span>
+            <span class="metric-value positive">+22.3%</span>
+        </div>
+        <div class="metric-row">
+            <span class="metric-label">CELEBRATION VOL:</span>
+            <span class="metric-value positive">HIGH</span>
+        </div>
+        <div class="metric-row">
+            <span class="metric-label">FRIEND SUPPORT:</span>
+            <span class="metric-value positive">MAX</span>
+        </div>
+        <div class="metric-row">
+            <span class="metric-label">CAKE FUTURES:</span>
+            <span class="metric-value positive">BULLISH</span>
+        </div>
+        <div class="metric-row">
+            <span class="metric-label">PARTY SENTIMENT:</span>
+            <span class="metric-value positive">STRONG BUY</span>
+        </div>
+        <div class="metric-row">
+            <span class="metric-label">BIRTHDAY BETA:</span>
+            <span class="metric-value positive">1.00</span>
+        </div>
+        <div class="metric-row">
+            <span class="metric-label">GIFT EXPOSURE:</span>
+            <span class="metric-value positive">OPTIMAL</span>
+        </div>
+    </div>
+
+    <div class="panel news-feed">
+        <div class="panel-header">BIRTHDAY NEWS WIRE</div>
+        <div class="news-item">
+            <span class="news-time">09:00</span> BREAKING: Nader's birthday officially begins trading
+        </div>
+        <div class="news-item">
+            <span class="news-time">09:15</span> ALERT: Celebration index reaches all-time high
+        </div>
+        <div class="news-item">
+            <span class="news-time">09:30</span> UPDATE: Cake markets showing strong momentum
+        </div>
+        <div class="news-item">
+            <span class="news-time">09:45</span> FLASH: Friends rally around birthday bull market
+        </div>
+        <div class="news-item">
+            <span class="news-time">10:00</span> REPORT: Party planning algorithms optimized
+        </div>
+        <div class="news-item">
+            <span class="news-time">10:15</span> NOTICE: Gift delivery systems fully operational
+        </div>
+        <div class="news-item">
+            <span class="news-time">10:30</span> ANALYSIS: Birthday ROI exceeds expectations
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateDateTime() {
+    const now = new Date();
+    const options = {
+    weekday: 'short',
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit'
+};
+    document.getElementById('datetime').textContent = now.toLocaleDateString('en-US', options);
+}
+
+    // Update time every second
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+
+    // Add some dynamic metric updates
+    setInterval(() => {
+    const metrics = document.querySelectorAll('.metric-value');
+    metrics.forEach(metric => {
+    if (Math.random() > 0.8) {
+    metric.style.color = '#FCA029';
+    setTimeout(() => {
+    metric.style.color = '#2FC654';
+}, 500);
+}
+});
+}, 3000);
+</script>
+</body>
+</html>
