@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NADER BIRTHDAY TERMINAL</title>
+    <title>ETAIWIBERG BIRTHDAY TERMINAL</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
         
@@ -73,6 +73,7 @@
             color: #ffffff;
             font-weight: bold;
             border-bottom: 1px solid #333;
+            position: relative;
         }
         
         .birthday-title {
@@ -86,9 +87,27 @@
             color: #96928B;
         }
         
+        .big-birthday-message {
+            background: linear-gradient(45deg, #FCA029, #2FC654);
+            color: #000000;
+            text-align: center;
+            padding: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 10px;
+            border-radius: 5px;
+            animation: celebration-glow 3s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes celebration-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(252, 160, 41, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(47, 198, 84, 0.7), 0 0 60px rgba(252, 160, 41, 0.5); }
+        }
+        
         .main-container {
             background: #000000;
-            min-height: calc(100vh - 120px);
+            min-height: calc(100vh - 200px);
         }
         
         .table-container {
@@ -146,6 +165,10 @@
         
         .indent-2 {
             padding-left: 32px;
+        }
+        
+        .indent-3 {
+            padding-left: 48px;
         }
         
         .item-name {
@@ -208,6 +231,35 @@
             float: right;
             color: #2FC654;
         }
+        
+        .volatility {
+            color: #0B57A7;
+        }
+        
+        .special-highlight {
+            background: rgba(252, 160, 41, 0.1);
+        }
+        
+        .news-ticker {
+            background: #1a1a1a;
+            color: #FCA029;
+            padding: 5px 10px;
+            font-size: 10px;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+            white-space: nowrap;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .ticker-content {
+            animation: scroll-ticker 45s linear infinite;
+        }
+        
+        @keyframes scroll-ticker {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
     </style>
 </head>
 <body>
@@ -239,66 +291,133 @@
     </div>
     
     <div class="title-bar">
-        <span class="birthday-title">🎉 HAPPY BIRTHDAY NADER - CELEBRATION METRICS SUMMARY 🎉</span>
-        <span class="data-info">Data up to 2025-07-23 ⌚ About the Data</span>
+        <span class="birthday-title">ETAIWIBERG BIRTHDAY TERMINAL - Nader Celebration Analytics Dashboard</span>
+        <span class="data-info">Data up to 2025-07-23 15:42:18 EDT ⌚ About the Data</span>
+    </div>
+    
+    <div class="big-birthday-message">
+        🎉🎂 HAPPY BIRTHDAY NADER! 🎂🎉<br>
+        <div style="font-size: 16px; margin-top: 5px;">CELEBRATION MARKETS ARE BULLISH - ALL TIME HIGHS ACROSS THE BOARD!</div>
+    </div>
+    
+    <div class="news-ticker">
+        <div class="ticker-content">
+            🎉 BREAKING: Nader Birthday Index (NBI) hits all-time high +∞% • Cake Futures surge 127% on premium frosting speculation • 
+            Friend Sentiment Index maintains STRONG BUY rating • Birthday Volatility Index shows unprecedented stability • 
+            Gift Delivery Network reports 100% uptime • Party Planning Algorithm optimized for maximum fun • 
+            Memory Creation Fund sees record inflows • Happiness Derivatives trading at premium • 
+            Celebration Infrastructure fully operational • Birthday ROI exceeds all analyst expectations •
+        </div>
     </div>
     
     <div class="main-container">
         <table class="table-container">
             <thead class="table-header">
                 <tr>
-                    <th style="width: 300px;">Index Name</th>
+                    <th style="width: 350px;">Index Name</th>
                     <th style="width: 100px;">Ticker</th>
                     <th style="width: 80px;">1D Rtn</th>
                     <th style="width: 80px;">MTD Rtn</th>
                     <th style="width: 80px;">YTD Rtn</th>
+                    <th style="width: 60px;">Vol</th>
                     <th style="width: 80px;">Members</th>
                 </tr>
             </thead>
             <tbody>
                 <tr class="category-row">
-                    <td><span class="expand-icon">▼</span>🎂 Birthday Performance Metrics</td>
+                    <td><span class="expand-icon">▼</span>🎂 Nader Birthday Core Holdings</td>
                     <td>Indices</td>
                     <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
+                    <td></td>
                 </tr>
-                <tr class="item-row">
-                    <td class="indent-1"><span class="item-name">🎉 Nader Happiness Index</span></td>
-                    <td class="ticker">HAPPI25</td>
+                <tr class="item-row special-highlight">
+                    <td class="indent-1"><span class="item-name">🎉 Nader Happiness Benchmark Index</span></td>
+                    <td class="ticker">NHBI25</td>
                     <td class="positive">+∞%</td>
-                    <td class="positive">+999%</td>
+                    <td class="positive">+999.9%</td>
                     <td class="positive">+∞%</td>
+                    <td class="volatility">STABLE</td>
                     <td class="members">1</td>
                 </tr>
                 <tr class="item-row">
                     <td class="indent-1"><span class="item-name">Birthday Celebration Aggregate</span></td>
-                    <td class="ticker">BDAY25</td>
-                    <td class="positive">+100%</td>
-                    <td class="positive">+100%</td>
-                    <td class="positive">+100%</td>
+                    <td class="ticker">BDAYAG</td>
+                    <td class="positive">+100.0%</td>
+                    <td class="positive">+100.0%</td>
+                    <td class="positive">+100.0%</td>
+                    <td class="volatility">LOW</td>
                     <td class="members">∞</td>
                 </tr>
                 <tr class="item-row">
-                    <td class="indent-2">🎂 Cake Quality Index</td>
-                    <td class="ticker">CAKE25</td>
+                    <td class="indent-2">🎂 Premium Cake Quality Index</td>
+                    <td class="ticker">CAKEQX</td>
                     <td class="positive">+50.5%</td>
                     <td class="positive">+75.2%</td>
                     <td class="positive">+92.8%</td>
+                    <td class="volatility">12.3%</td>
                     <td class="members">12</td>
                 </tr>
                 <tr class="item-row">
-                    <td class="indent-2">🎁 Gift Surprise Factor</td>
-                    <td class="ticker">GIFT25</td>
+                    <td class="indent-3">Chocolate Layer Futures</td>
+                    <td class="ticker">CHOCLY</td>
+                    <td class="positive">+25.7%</td>
+                    <td class="positive">+42.1%</td>
+                    <td class="positive">+78.3%</td>
+                    <td class="volatility">8.9%</td>
+                    <td class="members">3</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-3">Vanilla Frosting Securities</td>
+                    <td class="ticker">VFROST</td>
+                    <td class="positive">+31.2%</td>
+                    <td class="positive">+55.8%</td>
+                    <td class="positive">+89.4%</td>
+                    <td class="volatility">6.2%</td>
+                    <td class="members">4</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-3">Candle Illumination Fund</td>
+                    <td class="ticker">CANDLF</td>
+                    <td class="positive">+67.9%</td>
+                    <td class="positive">+88.1%</td>
+                    <td class="positive">+125.6%</td>
+                    <td class="volatility">15.7%</td>
+                    <td class="members">25</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-2">🎁 Gift Surprise Optimization Fund</td>
+                    <td class="ticker">GIFTSP</td>
                     <td class="positive">+88.7%</td>
                     <td class="positive">+65.3%</td>
-                    <td class="positive">+120%</td>
+                    <td class="positive">+127.9%</td>
+                    <td class="volatility">18.4%</td>
                     <td class="members">25</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-3">Wrapping Paper Aesthetics</td>
+                    <td class="ticker">WRAPPR</td>
+                    <td class="positive">+45.2%</td>
+                    <td class="positive">+33.7%</td>
+                    <td class="positive">+91.5%</td>
+                    <td class="volatility">22.1%</td>
+                    <td class="members">8</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-3">Surprise Element Derivatives</td>
+                    <td class="ticker">SURPRZ</td>
+                    <td class="positive">+92.3%</td>
+                    <td class="positive">+78.6%</td>
+                    <td class="positive">+156.8%</td>
+                    <td class="volatility">35.9%</td>
+                    <td class="members">∞</td>
                 </tr>
                 
                 <tr class="category-row">
-                    <td><span class="expand-icon">▼</span>📈 Friendship Portfolio Returns</td>
+                    <td><span class="expand-icon">▼</span>📈 Social Capital & Friendship Portfolio</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -306,24 +425,63 @@
                     <td></td>
                 </tr>
                 <tr class="item-row">
-                    <td class="indent-1"><span class="item-name">Friends Loyalty Index</span></td>
-                    <td class="ticker">FRND25</td>
+                    <td class="indent-1"><span class="item-name">Global Friends Loyalty Index</span></td>
+                    <td class="ticker">GFRNDX</td>
                     <td class="positive">+25.4%</td>
                     <td class="positive">+18.9%</td>
                     <td class="positive">+45.7%</td>
+                    <td class="volatility">5.2%</td>
                     <td class="members">500</td>
                 </tr>
                 <tr class="item-row">
-                    <td class="indent-1"><span class="item-name">Memory Creation Fund</span></td>
-                    <td class="ticker">MEMO25</td>
+                    <td class="indent-2">Close Friends Premium Tier</td>
+                    <td class="ticker">CLOSEF</td>
+                    <td class="positive">+89.2%</td>
+                    <td class="positive">+67.3%</td>
+                    <td class="positive">+145.8%</td>
+                    <td class="volatility">3.1%</td>
+                    <td class="members">15</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-2">Family Bond Securities</td>
+                    <td class="ticker">FAMBND</td>
+                    <td class="positive">+∞%</td>
+                    <td class="positive">+∞%</td>
+                    <td class="positive">+∞%</td>
+                    <td class="volatility">0.0%</td>
+                    <td class="members">20</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-1"><span class="item-name">Memory Creation & Storage Fund</span></td>
+                    <td class="ticker">MEMFND</td>
                     <td class="positive">+12.8%</td>
                     <td class="positive">+34.2%</td>
                     <td class="positive">+67.1%</td>
+                    <td class="volatility">7.8%</td>
                     <td class="members">1000</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-2">Photo Album Dividend Fund</td>
+                    <td class="ticker">PHOTOQ</td>
+                    <td class="positive">+22.1%</td>
+                    <td class="positive">+41.7%</td>
+                    <td class="positive">+83.9%</td>
+                    <td class="volatility">11.4%</td>
+                    <td class="members">2500</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-2">Story Collection ETF</td>
+                    <td class="ticker">STRYEX</td>
+                    <td class="positive">+18.5%</td>
+                    <td class="positive">+29.8%</td>
+                    <td class="positive">+58.2%</td>
+                    <td class="volatility">9.7%</td>
+                    <td class="members">750</td>
                 </tr>
                 
                 <tr class="category-row">
-                    <td><span class="expand-icon">▼</span>🎊 Life Achievement Metrics</td>
+                    <td><span class="expand-icon">▼</span>🎊 Personal Development & Achievement Metrics</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -332,31 +490,53 @@
                 </tr>
                 <tr class="item-row">
                     <td class="indent-1"><span class="item-name">Wisdom Accumulation Index</span></td>
-                    <td class="ticker">WISE25</td>
+                    <td class="ticker">WISDMX</td>
                     <td class="positive">+1.0%</td>
                     <td class="positive">+3.1%</td>
                     <td class="positive">+15.7%</td>
+                    <td class="volatility">2.1%</td>
                     <td class="members">365</td>
                 </tr>
                 <tr class="item-row">
-                    <td class="indent-1"><span class="item-name">Experience Growth Fund</span></td>
-                    <td class="ticker">EXP25</td>
+                    <td class="indent-1"><span class="item-name">Experience Growth Composite</span></td>
+                    <td class="ticker">EXPGRO</td>
                     <td class="positive">+2.1%</td>
                     <td class="positive">+6.8%</td>
                     <td class="positive">+22.3%</td>
+                    <td class="volatility">4.5%</td>
                     <td class="members">8760</td>
                 </tr>
                 <tr class="item-row">
+                    <td class="indent-2">Skills Diversification Fund</td>
+                    <td class="ticker">SKILDF</td>
+                    <td class="positive">+8.7%</td>
+                    <td class="positive">+19.2%</td>
+                    <td class="positive">+41.8%</td>
+                    <td class="volatility">12.3%</td>
+                    <td class="members">50</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-2">Knowledge Capital REITs</td>
+                    <td class="ticker">KNOWLG</td>
+                    <td class="positive">+15.3%</td>
+                    <td class="positive">+28.9%</td>
+                    <td class="positive">+67.4%</td>
+                    <td class="volatility">8.1%</td>
+                    <td class="members">200</td>
+                </tr>
+                <tr class="item-row">
                     <td class="indent-1"><span class="item-name">Success Probability Matrix</span></td>
-                    <td class="ticker">SUCC25</td>
+                    <td class="ticker">SUCCPR</td>
                     <td class="positive">+5.2%</td>
                     <td class="positive">+12.4%</td>
                     <td class="positive">+28.9%</td>
+                    <td class="volatility">6.7%</td>
                     <td class="members">∞</td>
                 </tr>
                 
                 <tr class="category-row">
-                    <td><span class="expand-icon">▼</span>🚀 Future Outlook Derivatives</td>
+                    <td><span class="expand-icon">▼</span>🚀 Future Opportunities & Growth Derivatives</td>
+                    <td></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -365,27 +545,103 @@
                 </tr>
                 <tr class="item-row">
                     <td class="indent-1"><span class="item-name">Career Trajectory Futures</span></td>
-                    <td class="ticker">CAREER</td>
+                    <td class="ticker">CARFUT</td>
                     <td class="positive">+8.5%</td>
                     <td class="positive">+19.2%</td>
                     <td class="positive">+42.1%</td>
+                    <td class="volatility">14.8%</td>
                     <td class="members">999</td>
                 </tr>
                 <tr class="item-row">
+                    <td class="indent-2">Promotion Probability Swaps</td>
+                    <td class="ticker">PROMPR</td>
+                    <td class="positive">+12.7%</td>
+                    <td class="positive">+25.1%</td>
+                    <td class="positive">+58.9%</td>
+                    <td class="volatility">19.2%</td>
+                    <td class="members">12</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-2">Salary Growth Bonds</td>
+                    <td class="ticker">SALGRO</td>
+                    <td class="positive">+6.8%</td>
+                    <td class="positive">+14.3%</td>
+                    <td class="positive">+32.7%</td>
+                    <td class="volatility">8.5%</td>
+                    <td class="members">24</td>
+                </tr>
+                <tr class="item-row">
                     <td class="indent-1"><span class="item-name">Adventure Opportunity Index</span></td>
-                    <td class="ticker">ADVNT25</td>
+                    <td class="ticker">ADVOPX</td>
                     <td class="positive">+15.3%</td>
                     <td class="positive">+28.7%</td>
                     <td class="positive">+55.8%</td>
+                    <td class="volatility">25.1%</td>
                     <td class="members">777</td>
                 </tr>
                 <tr class="item-row">
+                    <td class="indent-2">Travel Experience Fund</td>
+                    <td class="ticker">TRAVEX</td>
+                    <td class="positive">+22.4%</td>
+                    <td class="positive">+38.9%</td>
+                    <td class="positive">+72.6%</td>
+                    <td class="volatility">18.7%</td>
+                    <td class="members">50</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-2">New Hobby Exploration ETF</td>
+                    <td class="ticker">HOBBYQ</td>
+                    <td class="positive">+18.7%</td>
+                    <td class="positive">+31.5%</td>
+                    <td class="positive">+68.2%</td>
+                    <td class="volatility">22.3%</td>
+                    <td class="members">25</td>
+                </tr>
+                <tr class="item-row">
                     <td class="indent-1"><span class="item-name">Dreams Realization Portfolio</span></td>
-                    <td class="ticker">DREAM25</td>
+                    <td class="ticker">DREAMZ</td>
                     <td class="positive">+20.1%</td>
                     <td class="positive">+35.4%</td>
                     <td class="positive">+78.9%</td>
+                    <td class="volatility">16.9%</td>
                     <td class="members">∞</td>
+                </tr>
+                
+                <tr class="category-row">
+                    <td><span class="expand-icon">▼</span>💰 Health & Wellness Fixed Income</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-1"><span class="item-name">Physical Health Treasury</span></td>
+                    <td class="ticker">PHYSTX</td>
+                    <td class="positive">+3.2%</td>
+                    <td class="positive">+8.7%</td>
+                    <td class="positive">+19.4%</td>
+                    <td class="volatility">4.1%</td>
+                    <td class="members">365</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-1"><span class="item-name">Mental Wellness Bonds</span></td>
+                    <td class="ticker">MENTWL</td>
+                    <td class="positive">+4.8%</td>
+                    <td class="positive">+11.2%</td>
+                    <td class="positive">+24.7%</td>
+                    <td class="volatility">3.8%</td>
+                    <td class="members">365</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-1"><span class="item-name">Life Balance Commodity</span></td>
+                    <td class="ticker">LIFEBL</td>
+                    <td class="positive">+7.1%</td>
+                    <td class="positive">+15.8%</td>
+                    <td class="positive">+33.9%</td>
+                    <td class="volatility">9.2%</td>
+                    <td class="members">52</td>
                 </tr>
             </tbody>
         </table>
@@ -394,11 +650,15 @@
     <div class="birthday-celebration">
         🎉 BIRTHDAY ALERT 🎉<br>
         CELEBRATION ACTIVE<br>
-        ALL METRICS BULLISH
+        ALL METRICS BULLISH<br>
+        <div style="margin-top:5px; font-size:10px;">
+        Market Cap: $∞<br>
+        Volume: RECORD HIGH
+        </div>
     </div>
     
     <div class="status-bar">
-        NADER BIRTHDAY TERMINAL v2025.07.23 | Connected | Real-time Data
+        ETAIWIBERG BIRTHDAY TERMINAL v2025.07.23 | Connected | Real-time Celebration Data | Market Status: PARTY MODE ACTIVATED
         <span class="current-time" id="current-time"></span>
     </div>
 
@@ -411,13 +671,13 @@
                 minute: '2-digit',
                 second: '2-digit'
             });
-            document.getElementById('current-time').textContent = timeString;
+            document.getElementById('current-time').textContent = timeString + ' EDT';
         }
         
         setInterval(updateTime, 1000);
         updateTime();
         
-        // Add some dynamic updates to simulate real Bloomberg terminal
+        // Add some dynamic updates to simulate real terminal activity
         setInterval(() => {
             const positiveElements = document.querySelectorAll('.positive');
             const randomElement = positiveElements[Math.floor(Math.random() * positiveElements.length)];
@@ -427,9 +687,21 @@
                 setTimeout(() => {
                     randomElement.style.backgroundColor = 'transparent';
                     randomElement.style.color = '#2FC654';
-                }, 300);
+                }, 400);
             }
-        }, 2000);
+        }, 1500);
+        
+        // Randomly highlight special rows
+        setInterval(() => {
+            const specialRows = document.querySelectorAll('.item-row');
+            const randomRow = specialRows[Math.floor(Math.random() * specialRows.length)];
+            if (randomRow && Math.random() > 0.85) {
+                randomRow.style.backgroundColor = 'rgba(252, 160, 41, 0.05)';
+                setTimeout(() => {
+                    randomRow.style.backgroundColor = 'transparent';
+                }, 2000);
+            }
+        }, 3000);
     </script>
 </body>
 </html>
