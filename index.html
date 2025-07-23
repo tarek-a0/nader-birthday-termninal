@@ -1,362 +1,435 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NADER BIRTHDAY TERMINAL</title>
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
-
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-    body {
-    background-color: #000000;
-    color: #ffffff;
-    font-family: 'Courier Prime', monospace;
-    font-size: 12px;
-    overflow: hidden;
-    height: 100vh;
-}
-
-    .terminal-header {
-    background: #FCA029;
-    padding: 8px 15px;
-    border-bottom: 1px solid #444;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-    .logo {
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 16px;
-}
-
-    .time-date {
-    color: #ffffff;
-    font-size: 11px;
-}
-
-    .main-container {
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    grid-template-rows: 1fr 200px;
-    height: calc(100vh - 50px);
-    gap: 2px;
-    background: #000;
-}
-
-    .panel {
-    background: #1a1a1a;
-    border: 1px solid #444;
-    padding: 10px;
-    overflow: hidden;
-}
-
-    .panel-header {
-    background: #FCA029;
-    color: #ffffff;
-    font-weight: bold;
-    margin: -10px -10px 8px -10px;
-    padding: 5px 10px;
-    border-bottom: 1px solid #444;
-}
-
-    .birthday-main {
-    grid-column: 1;
-    grid-row: 1 / 3;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: #1a1a1a;
-}
-
-    .birthday-title {
-    font-size: 32px;
-    color: #FCA029;
-    font-weight: bold;
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px #FCA029;
-    animation: glow 2s ease-in-out infinite alternate;
-}
-
-    @keyframes glow {
-    from { text-shadow: 0 0 10px #FCA029; }
-    to { text-shadow: 0 0 20px #FCA029, 0 0 30px #FCA029; }
-}
-
-    .birthday-message {
-    font-size: 16px;
-    color: #ffffff;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-    .stock-ticker {
-    background: #000000;
-    color: #2FC654;
-    padding: 5px;
-    font-size: 11px;
-    white-space: nowrap;
-    overflow: hidden;
-    position: relative;
-    margin: 20px 0;
-    border: 1px solid #444;
-}
-
-    .ticker-content {
-    animation: scroll 30s linear infinite;
-}
-
-    @keyframes scroll {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-}
-
-    .metrics {
-    grid-column: 2;
-    grid-row: 1;
-}
-
-    .metric-row {
-    display: flex;
-    justify-content: space-between;
-    margin: 5px 0;
-    font-size: 11px;
-}
-
-    .metric-label {
-    color: #96928B;
-}
-
-    .metric-value {
-    color: #2FC654;
-    font-weight: bold;
-}
-
-    .metric-value.positive {
-    color: #2FC654;
-}
-
-    .metric-value.negative {
-    color: #A91216;
-}
-
-    .news-feed {
-    grid-column: 2;
-    grid-row: 2;
-}
-
-    .news-item {
-    color: #ffffff;
-    font-size: 10px;
-    margin: 5px 0;
-    padding: 3px 0;
-    border-bottom: 1px solid #444;
-}
-
-    .news-time {
-    color: #96928B;
-    font-size: 9px;
-}
-
-    .chart-container {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 2px;
-}
-
-    .chart-bar {
-    width: 8px;
-    background: #2FC654;
-    animation: chartGrow 3s ease-in-out infinite;
-}
-
-    @keyframes chartGrow {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; transform: scaleY(1.2); }
-}
-
-    .command-line {
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-    color: #ffffff;
-    font-size: 11px;
-}
-
-    .cursor {
-    animation: blink 1s infinite;
-}
-
-    @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
-}
-
-    .celebration {
-    position: absolute;
-    font-size: 20px;
-    animation: float 4s ease-in-out infinite;
-}
-
-    @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
-}
-</style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Courier Prime', monospace;
+            font-size: 11px;
+            overflow-x: auto;
+            min-height: 100vh;
+        }
+        
+        .terminal-header {
+            background: #000000;
+            padding: 4px 8px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            align-items: center;
+            gap: 1px;
+        }
+        
+        .tab {
+            background: #FCA029;
+            color: #000000;
+            padding: 4px 12px;
+            font-weight: bold;
+            font-size: 10px;
+        }
+        
+        .tab.active {
+            background: #FCA029;
+        }
+        
+        .tab.inactive {
+            background: #666;
+            color: #ffffff;
+        }
+        
+        .sub-tabs {
+            background: #1a1a1a;
+            padding: 4px 8px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            gap: 15px;
+            font-size: 10px;
+        }
+        
+        .sub-tab {
+            color: #96928B;
+            padding: 2px 0;
+        }
+        
+        .sub-tab.active {
+            color: #ffffff;
+            border-bottom: 1px solid #FCA029;
+        }
+        
+        .title-bar {
+            background: #000000;
+            padding: 8px;
+            color: #ffffff;
+            font-weight: bold;
+            border-bottom: 1px solid #333;
+        }
+        
+        .birthday-title {
+            color: #FCA029;
+            font-size: 14px;
+        }
+        
+        .data-info {
+            float: right;
+            font-size: 10px;
+            color: #96928B;
+        }
+        
+        .main-container {
+            background: #000000;
+            min-height: calc(100vh - 120px);
+        }
+        
+        .table-container {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+        }
+        
+        .table-header {
+            background: #1a1a1a;
+            border-bottom: 1px solid #333;
+        }
+        
+        .table-header th {
+            padding: 6px 8px;
+            text-align: left;
+            font-weight: bold;
+            color: #ffffff;
+            border-right: 1px solid #333;
+        }
+        
+        .category-row {
+            background: #1a1a1a;
+            font-weight: bold;
+        }
+        
+        .category-row td {
+            padding: 4px 8px;
+            color: #FCA029;
+            border-bottom: 1px solid #333;
+            border-right: 1px solid #333;
+        }
+        
+        .expand-icon {
+            color: #96928B;
+            margin-right: 5px;
+        }
+        
+        .item-row {
+            border-bottom: 1px solid #222;
+        }
+        
+        .item-row:hover {
+            background: #1a1a1a;
+        }
+        
+        .item-row td {
+            padding: 3px 8px;
+            border-right: 1px solid #333;
+        }
+        
+        .indent-1 {
+            padding-left: 16px;
+        }
+        
+        .indent-2 {
+            padding-left: 32px;
+        }
+        
+        .item-name {
+            color: #FCA029;
+        }
+        
+        .ticker {
+            color: #96928B;
+            font-size: 10px;
+        }
+        
+        .positive {
+            color: #2FC654;
+        }
+        
+        .negative {
+            color: #A91216;
+        }
+        
+        .neutral {
+            color: #96928B;
+        }
+        
+        .members {
+            color: #96928B;
+            text-align: right;
+        }
+        
+        .birthday-celebration {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(252, 160, 41, 0.1);
+            border: 1px solid #FCA029;
+            padding: 10px;
+            border-radius: 5px;
+            color: #FCA029;
+            font-size: 12px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.05); }
+        }
+        
+        .status-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #1a1a1a;
+            padding: 4px 8px;
+            border-top: 1px solid #333;
+            font-size: 10px;
+            color: #96928B;
+        }
+        
+        .current-time {
+            float: right;
+            color: #2FC654;
+        }
+    </style>
 </head>
 <body>
-<div class="terminal-header">
-    <div class="logo">BLOOMBERG BIRTHDAY TERMINAL</div>
-    <div class="time-date" id="datetime"></div>
-</div>
-
-<div class="main-container">
-    <div class="panel birthday-main">
-        <div class="birthday-title">🎉 HAPPY BIRTHDAY NADER! 🎉</div>
-        <div class="birthday-message">
-            BIRTHDAY METRICS SHOW EXCEPTIONAL PERFORMANCE<br>
-            CELEBRATION INDEX: 📈 ALL TIME HIGH<br>
-            HAPPINESS FUTURES: BULLISH OUTLOOK<br>
-            CAKE VOLATILITY: EXTREMELY POSITIVE<br><br>
-            MARKET ANALYSIS: ANOTHER YEAR OF OUTSTANDING RETURNS!
-        </div>
-
-        <div class="stock-ticker">
-            <div class="ticker-content">
-                NADER +∞% ● HAPPINESS +999% ● CAKE +100% ● FRIENDSHIP +∞% ● BIRTHDAY_WISHES +1000% ● CELEBRATION_INDEX ATH ● PARTY_MODE ACTIVATED
-            </div>
-        </div>
-
-        <div class="chart-container">
-            <div class="chart-bar" style="height: 30px; animation-delay: 0s;"></div>
-            <div class="chart-bar" style="height: 45px; animation-delay: 0.2s;"></div>
-            <div class="chart-bar" style="height: 60px; animation-delay: 0.4s;"></div>
-            <div class="chart-bar" style="height: 80px; animation-delay: 0.6s;"></div>
-            <div class="chart-bar" style="height: 95px; animation-delay: 0.8s;"></div>
-            <div class="chart-bar" style="height: 70px; animation-delay: 1s;"></div>
-            <div class="chart-bar" style="height: 85px; animation-delay: 1.2s;"></div>
-            <div class="chart-bar" style="height: 100px; animation-delay: 1.4s;"></div>
-        </div>
-
-        <div class="command-line">
-            > execute birthday_celebration.exe<span class="cursor">_</span>
-        </div>
-
-        <div class="celebration" style="top: 15%; left: 15%; animation-delay: 0s;">🎂</div>
-        <div class="celebration" style="top: 25%; right: 20%; animation-delay: 1s;">🎁</div>
-        <div class="celebration" style="top: 45%; left: 10%; animation-delay: 2s;">🎊</div>
-        <div class="celebration" style="top: 65%; right: 15%; animation-delay: 3s;">🥳</div>
+    <div class="terminal-header">
+        <span class="tab active">NADER Birthday</span>
+        <span class="tab inactive">Equity</span>
+        <span class="tab inactive">Strategy</span>
+        <span class="tab inactive">Commodity</span>
+        <span class="tab inactive">ESG</span>
+        <span class="tab inactive">Currency/Crypto</span>
+        <span class="tab inactive">AusBond</span>
+        <span class="tab inactive">My Indices</span>
+    </div>
+    
+    <div class="sub-tabs">
+        <span class="sub-tab active">Key Indices</span>
+        <span class="sub-tab">Global</span>
+        <span class="sub-tab">US</span>
+        <span class="sub-tab">Pan-Euro</span>
+        <span class="sub-tab">Asia-Pac</span>
+        <span class="sub-tab">High Yield</span>
+        <span class="sub-tab">Inflation</span>
+        <span class="sub-tab">EM</span>
+        <span class="sub-tab">Muni</span>
+        <span class="sub-tab">Series-B</span>
+        <span class="sub-tab">ESG</span>
+        <span class="sub-tab">0-1 Year</span>
+        <span class="sub-tab">Loan</span>
+    </div>
+    
+    <div class="title-bar">
+        <span class="birthday-title">🎉 HAPPY BIRTHDAY NADER - CELEBRATION METRICS SUMMARY 🎉</span>
+        <span class="data-info">Data up to 2025-07-23 ⌚ About the Data</span>
+    </div>
+    
+    <div class="main-container">
+        <table class="table-container">
+            <thead class="table-header">
+                <tr>
+                    <th style="width: 300px;">Index Name</th>
+                    <th style="width: 100px;">Ticker</th>
+                    <th style="width: 80px;">1D Rtn</th>
+                    <th style="width: 80px;">MTD Rtn</th>
+                    <th style="width: 80px;">YTD Rtn</th>
+                    <th style="width: 80px;">Members</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="category-row">
+                    <td><span class="expand-icon">▼</span>🎂 Birthday Performance Metrics</td>
+                    <td>Indices</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-1"><span class="item-name">🎉 Nader Happiness Index</span></td>
+                    <td class="ticker">HAPPI25</td>
+                    <td class="positive">+∞%</td>
+                    <td class="positive">+999%</td>
+                    <td class="positive">+∞%</td>
+                    <td class="members">1</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-1"><span class="item-name">Birthday Celebration Aggregate</span></td>
+                    <td class="ticker">BDAY25</td>
+                    <td class="positive">+100%</td>
+                    <td class="positive">+100%</td>
+                    <td class="positive">+100%</td>
+                    <td class="members">∞</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-2">🎂 Cake Quality Index</td>
+                    <td class="ticker">CAKE25</td>
+                    <td class="positive">+50.5%</td>
+                    <td class="positive">+75.2%</td>
+                    <td class="positive">+92.8%</td>
+                    <td class="members">12</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-2">🎁 Gift Surprise Factor</td>
+                    <td class="ticker">GIFT25</td>
+                    <td class="positive">+88.7%</td>
+                    <td class="positive">+65.3%</td>
+                    <td class="positive">+120%</td>
+                    <td class="members">25</td>
+                </tr>
+                
+                <tr class="category-row">
+                    <td><span class="expand-icon">▼</span>📈 Friendship Portfolio Returns</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-1"><span class="item-name">Friends Loyalty Index</span></td>
+                    <td class="ticker">FRND25</td>
+                    <td class="positive">+25.4%</td>
+                    <td class="positive">+18.9%</td>
+                    <td class="positive">+45.7%</td>
+                    <td class="members">500</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-1"><span class="item-name">Memory Creation Fund</span></td>
+                    <td class="ticker">MEMO25</td>
+                    <td class="positive">+12.8%</td>
+                    <td class="positive">+34.2%</td>
+                    <td class="positive">+67.1%</td>
+                    <td class="members">1000</td>
+                </tr>
+                
+                <tr class="category-row">
+                    <td><span class="expand-icon">▼</span>🎊 Life Achievement Metrics</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-1"><span class="item-name">Wisdom Accumulation Index</span></td>
+                    <td class="ticker">WISE25</td>
+                    <td class="positive">+1.0%</td>
+                    <td class="positive">+3.1%</td>
+                    <td class="positive">+15.7%</td>
+                    <td class="members">365</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-1"><span class="item-name">Experience Growth Fund</span></td>
+                    <td class="ticker">EXP25</td>
+                    <td class="positive">+2.1%</td>
+                    <td class="positive">+6.8%</td>
+                    <td class="positive">+22.3%</td>
+                    <td class="members">8760</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-1"><span class="item-name">Success Probability Matrix</span></td>
+                    <td class="ticker">SUCC25</td>
+                    <td class="positive">+5.2%</td>
+                    <td class="positive">+12.4%</td>
+                    <td class="positive">+28.9%</td>
+                    <td class="members">∞</td>
+                </tr>
+                
+                <tr class="category-row">
+                    <td><span class="expand-icon">▼</span>🚀 Future Outlook Derivatives</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-1"><span class="item-name">Career Trajectory Futures</span></td>
+                    <td class="ticker">CAREER</td>
+                    <td class="positive">+8.5%</td>
+                    <td class="positive">+19.2%</td>
+                    <td class="positive">+42.1%</td>
+                    <td class="members">999</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-1"><span class="item-name">Adventure Opportunity Index</span></td>
+                    <td class="ticker">ADVNT25</td>
+                    <td class="positive">+15.3%</td>
+                    <td class="positive">+28.7%</td>
+                    <td class="positive">+55.8%</td>
+                    <td class="members">777</td>
+                </tr>
+                <tr class="item-row">
+                    <td class="indent-1"><span class="item-name">Dreams Realization Portfolio</span></td>
+                    <td class="ticker">DREAM25</td>
+                    <td class="positive">+20.1%</td>
+                    <td class="positive">+35.4%</td>
+                    <td class="positive">+78.9%</td>
+                    <td class="members">∞</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="birthday-celebration">
+        🎉 BIRTHDAY ALERT 🎉<br>
+        CELEBRATION ACTIVE<br>
+        ALL METRICS BULLISH
+    </div>
+    
+    <div class="status-bar">
+        NADER BIRTHDAY TERMINAL v2025.07.23 | Connected | Real-time Data
+        <span class="current-time" id="current-time"></span>
     </div>
 
-    <div class="panel metrics">
-        <div class="panel-header">BIRTHDAY ANALYTICS</div>
-        <div class="metric-row">
-            <span class="metric-label">AGE APPRECIATION:</span>
-            <span class="metric-value positive">+1 YR</span>
-        </div>
-        <div class="metric-row">
-            <span class="metric-label">WISDOM INDEX:</span>
-            <span class="metric-value positive">+15.7%</span>
-        </div>
-        <div class="metric-row">
-            <span class="metric-label">EXPERIENCE YIELD:</span>
-            <span class="metric-value positive">+22.3%</span>
-        </div>
-        <div class="metric-row">
-            <span class="metric-label">CELEBRATION VOL:</span>
-            <span class="metric-value positive">HIGH</span>
-        </div>
-        <div class="metric-row">
-            <span class="metric-label">FRIEND SUPPORT:</span>
-            <span class="metric-value positive">MAX</span>
-        </div>
-        <div class="metric-row">
-            <span class="metric-label">CAKE FUTURES:</span>
-            <span class="metric-value positive">BULLISH</span>
-        </div>
-        <div class="metric-row">
-            <span class="metric-label">PARTY SENTIMENT:</span>
-            <span class="metric-value positive">STRONG BUY</span>
-        </div>
-        <div class="metric-row">
-            <span class="metric-label">BIRTHDAY BETA:</span>
-            <span class="metric-value positive">1.00</span>
-        </div>
-        <div class="metric-row">
-            <span class="metric-label">GIFT EXPOSURE:</span>
-            <span class="metric-value positive">OPTIMAL</span>
-        </div>
-    </div>
-
-    <div class="panel news-feed">
-        <div class="panel-header">BIRTHDAY NEWS WIRE</div>
-        <div class="news-item">
-            <span class="news-time">09:00</span> BREAKING: Nader's birthday officially begins trading
-        </div>
-        <div class="news-item">
-            <span class="news-time">09:15</span> ALERT: Celebration index reaches all-time high
-        </div>
-        <div class="news-item">
-            <span class="news-time">09:30</span> UPDATE: Cake markets showing strong momentum
-        </div>
-        <div class="news-item">
-            <span class="news-time">09:45</span> FLASH: Friends rally around birthday bull market
-        </div>
-        <div class="news-item">
-            <span class="news-time">10:00</span> REPORT: Party planning algorithms optimized
-        </div>
-        <div class="news-item">
-            <span class="news-time">10:15</span> NOTICE: Gift delivery systems fully operational
-        </div>
-        <div class="news-item">
-            <span class="news-time">10:30</span> ANALYSIS: Birthday ROI exceeds expectations
-        </div>
-    </div>
-</div>
-
-<script>
-    function updateDateTime() {
-    const now = new Date();
-    const options = {
-    weekday: 'short',
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
-};
-    document.getElementById('datetime').textContent = now.toLocaleDateString('en-US', options);
-}
-
-    // Update time every second
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
-
-    // Add some dynamic metric updates
-    setInterval(() => {
-    const metrics = document.querySelectorAll('.metric-value');
-    metrics.forEach(metric => {
-    if (Math.random() > 0.8) {
-    metric.style.color = '#FCA029';
-    setTimeout(() => {
-    metric.style.color = '#2FC654';
-}, 500);
-}
-});
-}, 3000);
-</script>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', { 
+                hour12: false,
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            document.getElementById('current-time').textContent = timeString;
+        }
+        
+        setInterval(updateTime, 1000);
+        updateTime();
+        
+        // Add some dynamic updates to simulate real Bloomberg terminal
+        setInterval(() => {
+            const positiveElements = document.querySelectorAll('.positive');
+            const randomElement = positiveElements[Math.floor(Math.random() * positiveElements.length)];
+            if (randomElement) {
+                randomElement.style.backgroundColor = '#FCA029';
+                randomElement.style.color = '#000000';
+                setTimeout(() => {
+                    randomElement.style.backgroundColor = 'transparent';
+                    randomElement.style.color = '#2FC654';
+                }, 300);
+            }
+        }, 2000);
+    </script>
 </body>
 </html>
